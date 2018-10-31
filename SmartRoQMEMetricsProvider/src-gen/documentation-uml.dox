@@ -123,6 +123,36 @@ Class Reference: \link SmartRoQMEMetricsProvider \endlink
 
 </li>
 
+<li> \anchor BaseStateClient <h4> BaseStateClient </h4>
+<table>
+<tr>
+	<td> commPattern </td>
+	<td> SmartPushTimedClient </td>
+</tr>
+<tr>
+	<td> interval </td>
+	<td> 1 </td>
+</tr>
+<tr>
+	<td> serverName </td>
+	<td> @ref SmartRobotinoBaseServerDescription "SmartRobotinoBaseServer" </td>
+</tr>
+<tr>
+	<td> wireable </td>
+	<td> true </td>
+</tr>
+<tr>
+	<td> serviceName </td>
+	<td> basePositionServer </td>
+</tr>
+<tr>
+	<td> commObject </td>
+	<td> @ref CommBaseState </td>
+</tr>
+</table>
+
+</li>
+
 </ul>
 	<h3> Provided-Ports </h3>
 	<ul>

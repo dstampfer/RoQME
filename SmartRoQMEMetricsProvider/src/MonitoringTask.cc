@@ -145,6 +145,10 @@ int MonitoringTask::on_execute()
 	CommBasicObjects::CommBaseVelocity velocity = baseState.getBaseVelocity();
 
 
+	double vx = velocity.get_vX(1); // m/s
+	double vy = velocity.get_vY(1); // m/s
+	double vw = velocity.getWZ(); // rad/s
+
 
 	std::cout << "Hello from MonitoringTask\n";
 	sleep(1);
