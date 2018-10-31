@@ -1,0 +1,181 @@
+/**
+* @defgroup SmartRoQMEMetricsProviderGroup SmartRoQMEMetricsProvider
+* @ingroup componentGroup
+* @{ */
+
+/*! @page SmartRoQMEMetricsProviderDescription Description of SmartRoQMEMetricsProvider
+
+\image html SmartRoQMEMetricsProvider/model/SmartRoQMEMetricsProvider.JPG "SmartRoQMEMetricsProvider"
+
+\anchor start		
+Description
+
+
+Class Reference: \link SmartRoQMEMetricsProvider \endlink
+<table>
+	<tr>
+		<td> License </td>
+		<td> ... </td>
+	</tr>
+	<tr>
+		<td> Hardware Requirements </td>
+		<td> ... </td>
+	</tr>
+	<tr>
+		<td> Purpose </td>
+		<td> ... </td>
+	</tr>
+	<tr>
+		<td>Library Dependencies</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td> Version </td>
+		<td>1.0.0</td>
+	</tr>
+	<tr>
+		<td> sourceforge SVN Repository </td>
+		<td> <a href="http://sourceforge.net/p/smartsoft-ace/code/HEAD/tree/trunk/src/components/SmartRoQMEMetricsProvider">SmartRoQMEMetricsProvider</a> </td>
+	</tr>
+	<tr>
+		<td> Dependencies to %Communication Object Repositories </td>
+		<td>
+			@ref CommBasicObjects \n
+			@ref CommRoQMEObjects \n
+		</td>
+	</tr>
+</table>
+\n
+
+
+
+
+\anchor SmartRoQMEMetricsProviderservicesSection
+<h2> Services </h2>
+<hr>
+<h3> Required-Ports </h3>
+<ul>
+<li> \anchor BaseBumperEventClient <h4> BaseBumperEventClient </h4>
+<table>
+<tr>
+	<td> commPattern </td>
+	<td> SmartEventClient </td>
+</tr>
+<tr>
+	<td> smartEventHandler </td>
+	<td> baseBumperEventHandler </td>
+</tr>
+<tr>
+	<td> serverName </td>
+	<td> @ref SmartRobotinoBaseServerDescription "SmartRobotinoBaseServer" </td>
+</tr>
+<tr>
+	<td> wireable </td>
+	<td> true </td>
+</tr>
+<tr>
+	<td> serviceName </td>
+	<td> bumperEventServer </td>
+</tr>
+<tr>
+	<td> eventParameter </td>
+	<td> @ref CommBumperEventParameter </td>
+</tr>
+<tr>
+	<td> eventResult </td>
+	<td> @ref CommBumperEventResult </td>
+</tr>
+</table>
+
+</li>
+
+<li> \anchor KbEventClient <h4> KbEventClient </h4>
+<table>
+<tr>
+	<td> commPattern </td>
+	<td> SmartEventClient </td>
+</tr>
+<tr>
+	<td> smartEventHandler </td>
+	<td> kbEventHandler </td>
+</tr>
+<tr>
+	<td> serverName </td>
+	<td> @ref SmartSimpleKBDescription "SmartSimpleKB" </td>
+</tr>
+<tr>
+	<td> wireable </td>
+	<td> true </td>
+</tr>
+<tr>
+	<td> serviceName </td>
+	<td> kbEventServer </td>
+</tr>
+<tr>
+	<td> eventParameter </td>
+	<td> @ref CommKBEventParam </td>
+</tr>
+<tr>
+	<td> eventResult </td>
+	<td> @ref CommKBEventResult </td>
+</tr>
+</table>
+
+</li>
+
+</ul>
+	<h3> Provided-Ports </h3>
+	<ul>
+	<li> \anchor SmartStateSlave <h4> SmartStateSlave </h4>
+	<table>
+	<tr>
+		<td> commPattern </td>
+		<td> SmartStateSlave </td>
+	</tr>
+	</table>
+	
+	</li>
+	
+	<li> \anchor SmartWiringSlave <h4> SmartWiringSlave </h4>
+	<table>
+	<tr>
+		<td> commPattern </td>
+		<td> SmartWiringSlave </td>
+	</tr>
+	</table>
+	
+	</li>
+	
+	<li> \anchor SmartParameterSlave <h4> SmartParameterSlave </h4>
+	<table>
+	<tr>
+		<td> commPattern </td>
+		<td> SmartParameterSlave </td>
+	</tr>
+	</table>
+	
+	</li>
+	
+	<li> \anchor MetricsPushServer <h4> MetricsPushServer </h4>
+	<table>
+	<tr>
+		<td> commPattern </td>
+		<td> SmartPushNewestServer </td>
+	</tr>
+	<tr>
+		<td> commObject </td>
+		<td> @ref CommQoSMetrics </td>
+	</tr>
+	</table>
+	
+	</li>
+	
+	</ul>
+<hr>
+\n
+
+
+\copydoc xtextDoc_SmartRoQMEMetricsProviderconfigurationSection
+
+*/
+/* @} */

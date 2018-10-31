@@ -1,0 +1,28 @@
+/** 
+\class CommRoQMEObjects::CommQoSMetricsCore
+
+Structure of Communication Object:
+- metricNames: String[*] 
+- values: Double[*]  = 0.0 
+
+
+
+
+@defgroup CommRoQMEObjects
+@ingroup commObjGroup
+@{
+\page CommRoQMEObjectsPage CommRoQMEObjects
+Class Reference: CommRoQMEObjects
+<hr>
+
+@section CommQoSMetrics CommQoSMetrics
+- metricNames: String[*]  
+- values: Double[*]   = 0.0 
+
+Class Reference: CommRoQMEObjects::CommQoSMetricsCore
+<hr>
+
+
+@}
+*/
+

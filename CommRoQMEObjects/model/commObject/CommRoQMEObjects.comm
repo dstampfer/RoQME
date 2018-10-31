@@ -1,0 +1,8 @@
+CommObjectRepository CommRoQMEObjects Version 1.0.0 {
+	
+	CommObject CommQoSMetrics{
+		metricNames : String [*]
+		values : Double [*]
+	}
+
+}

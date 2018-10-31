@@ -1,0 +1,14 @@
+ComponentDocumentation SmartRoQMEMetricsProvider.SmartRoQMEMetricsProvider {
+	Description : "Description"
+	License : "..."
+	HardwareRequirements : "..."
+	Purpose : "..."
+
+	/*	// Document your services and component elements here:
+	Service SmartRoQMEMetricsProvider.SmartRoQMEMetricsProvider.ServiceXY {
+		Description : "..."
+		// ...
+	}
+	*/
+
+}

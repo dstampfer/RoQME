@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ACE_ROOT</name>
+          <description></description>
+          <defaultValue>@ACE_ROOT@</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SMART_ROOT_ACE</name>
+          <description></description>
+          <defaultValue>@SMART_ROOT_ACE@</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.SubversionSCM" plugin="subversion@2.5.1">
+    <locations>
+      <hudson.scm.SubversionSCM_-ModuleLocation>
+        <remote>@SVN-REPRO_PATH@</remote>
+        <local>.</local>
+        <depthOption>infinity</depthOption>
+        <ignoreExternalsOption>false</ignoreExternalsOption>
+      </hudson.scm.SubversionSCM_-ModuleLocation>
+    </locations>
+    <excludedRegions></excludedRegions>
+    <includedRegions></includedRegions>
+    <excludedUsers></excludedUsers>
+    <excludedRevprop></excludedRevprop>
+    <excludedCommitMessages></excludedCommitMessages>
+    <workspaceUpdater class="hudson.scm.subversion.UpdateUpdater"/>
+    <ignoreDirPropChanges>false</ignoreDirPropChanges>
+    <filterChangelog>false</filterChangelog>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+	<jenkins.triggers.ReverseBuildTrigger>
+  		<spec></spec>
+  		<upstreamProjects>SmartSoft-utilities, </upstreamProjects>
+  		<threshold>
+    		<name>SUCCESS</name>
+    		<ordinal>0</ordinal>
+    		<color>BLUE</color>
+    		<completeBuild>true</completeBuild>
+  		</threshold>
+	</jenkins.triggers.ReverseBuildTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>H/5 * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.cmake.CmakeBuilder plugin="cmakebuilder@2.1">
+      <installationName>InSearchPath</installationName>
+      <generator>Unix Makefiles</generator>
+      <sourceDir>.</sourceDir>
+      <buildDir>build</buildDir>
+      <cmakeArgs>-DCMAKE_INSTALL_PREFIX=@SMART_ROOT_ACE@ -DCMAKE_SKIP_RPATH=true</cmakeArgs>
+      <cleanBuild>true</cleanBuild>
+      <toolSteps>
+        <hudson.plugins.cmake.BuildToolStep>
+          <args>nodep</args>
+        </hudson.plugins.cmake.BuildToolStep>
+      </toolSteps>
+    </hudson.plugins.cmake.CmakeBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

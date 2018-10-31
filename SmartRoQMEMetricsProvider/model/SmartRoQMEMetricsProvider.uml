@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commObj="http://www.xtext.org/smartsoft/commObj/CommObj" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:profile="http://smartsoft/profile/component/1.0" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http://smartsoft/profile/component/1.0 pathmap://SMARTMARSPROFILE/SmartMars.profile.uml#_aAgIYF6hEeS8WYUlWdOgVg">
+  <uml:Model xmi:id="_qCCzsNtnEeipsNn6BH76yQ" name="SmartRoQMEMetricsProvider">
+    <elementImport xmi:id="_hGRV8NzwEeiOPJBrCHaltw">
+      <importedElement xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommRoQMEObjects/model/commObject/CommRoQMEObjects.comm#//@elements.0/CommQoSMetrics"/>
+    </elementImport>
+    <elementImport xmi:id="_-11OwNzzEeiOPJBrCHaltw">
+      <importedElement xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommBumperEventParameter"/>
+    </elementImport>
+    <elementImport xmi:id="_-11OwdzzEeiOPJBrCHaltw">
+      <importedElement xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommBumperEventResult"/>
+    </elementImport>
+    <elementImport xmi:id="_s1eyQNz0EeiOPJBrCHaltw">
+      <importedElement xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommKBEventResult"/>
+    </elementImport>
+    <elementImport xmi:id="_s1eyQdz0EeiOPJBrCHaltw">
+      <importedElement xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommKBEventParam"/>
+    </elementImport>
+    <elementImport xmi:id="_HZt2MN0GEeiOPJBrCHaltw">
+      <importedElement xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommBaseState"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Component" xmi:id="_qFhlgNtnEeipsNn6BH76yQ" name="SmartRoQMEMetricsProvider">
+      <ownedComment xmi:id="_DyTowNuUEeipsNn6BH76yQ">
+        <body></body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_yRFRsNtnEeipsNn6BH76yQ" name="SmartStateSlave" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ypH-QNtnEeipsNn6BH76yQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ypIlUNtnEeipsNn6BH76yQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_ypIlUdtnEeipsNn6BH76yQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_0REMcNtnEeipsNn6BH76yQ" name="SmartWiringSlave" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0nSUENtnEeipsNn6BH76yQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0nSUEdtnEeipsNn6BH76yQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_0nS7INtnEeipsNn6BH76yQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_2JEP4NtnEeipsNn6BH76yQ" name="SmartParameterSlave" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kN60NtnEeipsNn6BH76yQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kOh4NtnEeipsNn6BH76yQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_2kOh4dtnEeipsNn6BH76yQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_y01-kNzyEeiOPJBrCHaltw" name="MetricsPushServer" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y4vnINzyEeiOPJBrCHaltw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y4vnIdzyEeiOPJBrCHaltw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_y4wOMNzyEeiOPJBrCHaltw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_FT8-MNzzEeiOPJBrCHaltw" name="BaseBumperEventClient" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FZlsINzzEeiOPJBrCHaltw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FZlsIdzzEeiOPJBrCHaltw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_FZmTMNzzEeiOPJBrCHaltw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_bNwGkNz0EeiOPJBrCHaltw" name="KbEventClient" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bV4u4Nz0EeiOPJBrCHaltw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bV4u4dz0EeiOPJBrCHaltw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_bV5V8Nz0EeiOPJBrCHaltw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="__1IqcN0FEeiOPJBrCHaltw" name="BaseStateClient" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__56cwN0FEeiOPJBrCHaltw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__56cwd0FEeiOPJBrCHaltw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="__56cwt0FEeiOPJBrCHaltw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <nestedClassifier xmi:type="uml:InformationItem" xmi:id="__WfkwNuTEeipsNn6BH76yQ" name="SmartComponentMetadata" isAbstract="true"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_xme4kNzzEeiOPJBrCHaltw" name="BaseBumperEventHandler"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_SOz1oNz0EeiOPJBrCHaltw" name="MonitoringTask"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_kfc7cNz0EeiOPJBrCHaltw" name="KbEventHandler"/>
+    </packagedElement>
+    <profileApplication xmi:id="_qFcF8NtnEeipsNn6BH76yQ">
+      <eAnnotations xmi:id="_qFd7INtnEeipsNn6BH76yQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://SMARTMARSPROFILE/SmartMars.profile.uml#_aAgIYF6hEeS8WYUlWdOgVg"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SMARTMARSPROFILE/SmartMars.profile.uml#_NEWX8L4LEeKqqbDuwbBkFg"/>
+    </profileApplication>
+  </uml:Model>
+  <profile:SmartStateSlave xmi:id="_yRe6UNtnEeipsNn6BH76yQ" base_Port="_yRFRsNtnEeipsNn6BH76yQ"/>
+  <profile:SmartWiringSlave xmi:id="_0RId4NtnEeipsNn6BH76yQ" base_Port="_0REMcNtnEeipsNn6BH76yQ"/>
+  <profile:SmartParameterSlave xmi:id="_2JIhUNtnEeipsNn6BH76yQ" base_Port="_2JEP4NtnEeipsNn6BH76yQ"/>
+  <profile:SmartComponentMetadata xmi:id="__Wqj4NuTEeipsNn6BH76yQ" base_InformationItem="__WfkwNuTEeipsNn6BH76yQ"/>
+  <profile:SmartComponentParameter xmi:id="_Dy3pcNuUEeipsNn6BH76yQ" base_Comment="_DyTowNuUEeipsNn6BH76yQ" parameterDefinition="// use ImportUri to import parameter definitions from CommObj repository&#xA;&#xA;Component SmartRoQMEMetricsProvider {&#xA;&#x9;&#xA;&#x9;InternalParam Connections {&#xA;&#x9;&#x9;useBase: Boolean = false&#xA;&#x9;&#x9;useKb : Boolean = false&#xA;&#x9;}&#xA;&#xA;}&#xA;"/>
+  <profile:SmartPushNewestServer xmi:id="_y1LVwNzyEeiOPJBrCHaltw" base_Port="_y01-kNzyEeiOPJBrCHaltw">
+    <commObject xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommRoQMEObjects/model/commObject/CommRoQMEObjects.comm#//@elements.0/CommQoSMetrics"/>
+  </profile:SmartPushNewestServer>
+  <profile:SmartEventClient xmi:id="_FUCdwNzzEeiOPJBrCHaltw" base_Port="_FT8-MNzzEeiOPJBrCHaltw" serverName="SmartRobotinoBaseServer" serviceName="bumperEventServer" smartEventHandler="_xmkYINzzEeiOPJBrCHaltw">
+    <eventParameter xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommBumperEventParameter"/>
+    <eventResult xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommBumperEventResult"/>
+  </profile:SmartEventClient>
+  <profile:SmartEventHandler xmi:id="_xmkYINzzEeiOPJBrCHaltw" base_Class="_xme4kNzzEeiOPJBrCHaltw"/>
+  <profile:SmartTask xmi:id="_SO58QNz0EeiOPJBrCHaltw" base_Class="_SOz1oNz0EeiOPJBrCHaltw"/>
+  <profile:SmartEventClient xmi:id="_bN1mINz0EeiOPJBrCHaltw" base_Port="_bNwGkNz0EeiOPJBrCHaltw" serverName="SmartSimpleKB" serviceName="kbEventServer" smartEventHandler="_kfgl0Nz0EeiOPJBrCHaltw">
+    <eventParameter xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommKBEventParam"/>
+    <eventResult xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommKBEventResult"/>
+  </profile:SmartEventClient>
+  <profile:SmartEventHandler xmi:id="_kfgl0Nz0EeiOPJBrCHaltw" base_Class="_kfc7cNz0EeiOPJBrCHaltw"/>
+  <profile:SmartPushTimedClient xmi:id="__1M74N0FEeiOPJBrCHaltw" base_Port="__1IqcN0FEeiOPJBrCHaltw" serverName="SmartRobotinoBaseServer" serviceName="basePositionServer">
+    <commObject xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommBaseState"/>
+  </profile:SmartPushTimedClient>
+</xmi:XMI>

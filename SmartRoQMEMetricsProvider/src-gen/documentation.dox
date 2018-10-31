@@ -1,0 +1,26 @@
+
+
+/*! @page xtextDoc_SmartRoQMEMetricsProviderconfigurationSection Configuration
+
+
+
+<h2> Configuration </h2>
+<hr>
+<h3> InternalParam </h3>
+<ul>
+<li><h4> «InternalParam» Connections </h4>
+<table>
+<tr>
+	<td> useBase:Boolean </td>
+	<td>  Default: false  </td>
+</tr>
+<tr>
+	<td> useKb:Boolean </td>
+	<td>  Default: false  </td>
+</tr>
+</table>
+</li>
+</ul>
+
+<hr>
+*/

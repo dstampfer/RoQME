@@ -1,0 +1,12 @@
+// Generated Dump. Do not edit! SmartComponentParameter::ParameterDumpContent()
+// use ImportUri to import parameter definitions from CommObj repository
+
+Component SmartRoQMEMetricsProvider {
+	
+	InternalParam Connections {
+		useBase: Boolean = false
+		useKb : Boolean = false
+	}
+
+}
+
