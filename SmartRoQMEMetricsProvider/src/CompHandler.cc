@@ -54,6 +54,8 @@ void CompHandler::onStartup()
 	// Notify the component that setup/initialization is finished.
 	// You may move this function to any other place.
 	COMP->setStartupFinished(); 
+
+	COMP->estimateReader = RoqmeEstimateReader(new EstimateListener());
 }
 
 void CompHandler::onShutdown() 

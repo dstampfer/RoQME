@@ -18,8 +18,8 @@
 #define _KBEVENTHANDLER_USER_HH
 	
 #include "smartSoft.hh"
-	
 #include "KbEventHandlerCore.hh"
+#include <RoqmeWriterImpl.h>
 
 class KbEventHandler : public KbEventHandlerCore
 {
@@ -31,6 +31,9 @@ private:
 
 public:
 	CommBasicObjects::CommKBEventResult getCurrentEventResult();
+
+private:
+	Roqme::RoqmeEventWriter eventWr;
 };
 	
 #endif

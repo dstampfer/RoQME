@@ -19,6 +19,8 @@
 	
 #include "smartSoft.hh"
 #include <iostream>
+#include <RoqmeReaderImpl.h>
+#include "EstimateListener.hh"
 
 class SmartRoQMEMetricsProviderCore
 {
@@ -30,6 +32,8 @@ public:
 	CHS::EventId bumperEventID;
 	CHS::EventId jobKbEventID;
 	CHS::EventId robotKbEventID;
+
+	RoqmeEstimateReader estimateReader;
 };
 	
 #endif

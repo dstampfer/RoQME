@@ -19,10 +19,13 @@
 
 #include <iostream>
 
+using namespace CHS;
+
 MonitoringTask::MonitoringTask(CHS::SmartComponent *comp) 
 :	MonitoringTaskCore(comp)
 {
 	std::cout << "constructor MonitoringTask\n";
+	distribution = std::uniform_int_distribution<int>(0,5);
 }
 MonitoringTask::~MonitoringTask() 
 {
@@ -33,8 +36,6 @@ MonitoringTask::~MonitoringTask()
 int MonitoringTask::on_entry()
 {
 	// do initialization procedures here, which are called once, each time the task is started
-	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
-
 
 	/*
 	 * NOTE:
@@ -112,27 +113,13 @@ int MonitoringTask::on_entry()
 
 int MonitoringTask::on_execute()
 {
+
 	// this method is called from an outside loop,
 	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
 	// also do not use blocking calls which do not result from smartsoft kernel
 	
-	/*
-	 * NOTE:
-	 * The input (context data) from the other components is provided via events (Event-Handler).
-	 * Depending on how and where the context data is processed it can either be transfered to this task or directly used in the event handler.
-	 * (See notes in the event handler!)
-	 */
 
-
-	/*
-	 * NOTE:
-	 * Dependent on the data and how to process them, this might not be reasonable as it is providing
-	 * the same information every call until new data via event is send to this component.
-	 * So in most cases it is more reasonable to use the data provided via event pattern, directly from the event handler (called only when an event is received).
-	 */
-	CommBasicObjects::CommKBEventResult kbEventRes = COMP->kbEventHandler->getCurrentEventResult();
-	CommBasicObjects::CommBumperEventResult baseBumperRes = COMP->baseBumperEventHandler->getCurrentEventResult();
-
+	std::cout << "on_execute: \n";
 
 	/*
 	 * NOTE:
@@ -144,34 +131,26 @@ int MonitoringTask::on_execute()
 	COMP->baseStateClient->getUpdate(baseState);
 	CommBasicObjects::CommBaseVelocity velocity = baseState.getBaseVelocity();
 
-
 	double vx = velocity.get_vX(1); // m/s
 	double vy = velocity.get_vY(1); // m/s
 	double vw = velocity.getWZ(); // rad/s
 
+	try
+	{
+		RoqmeDDSTopics::RoqmeDoubleContext velocityContext;//, vyContext, vwContext;
+		velocityContext.name("VelocityEvent");
+		//double velocity = 0.5;
 
-	std::cout << "Hello from MonitoringTask\n";
-	sleep(1);
+		double velocity =  distribution(generator);
+		velocityContext.value().push_back(velocity);
 
-	/*
-	 * NOTE:
-	 * Add value to CommObject and communicate the data via the port
-	 */
-
-	CommRoQMEObjects::CommQoSMetrics metrics;
-	unsigned int numberOfMetrics = 2;
-
-	metrics.resizeMetricNames(numberOfMetrics);
-	metrics.resizeValues(numberOfMetrics);
-
-	metrics.setMetricNamesElemAtPos(0,"Metric1");
-	metrics.setValuesElemAtPos(0,0.5);
-
-	metrics.setMetricNamesElemAtPos(0,"Metric2");
-	metrics.setValuesElemAtPos(1,0.8);
-
-	COMP->metricsPushServer->put(metrics);
-
+		doubleWriter.write(velocityContext);
+		std::cout << "velocity context published:" << velocity << std::endl;
+	}
+	catch(Roqme::RoqmeDDSException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;
@@ -181,3 +160,4 @@ int MonitoringTask::on_exit()
 	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
 	return 0;
 }
+

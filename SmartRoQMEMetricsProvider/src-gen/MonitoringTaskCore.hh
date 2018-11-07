@@ -18,15 +18,21 @@
 	
 #include "smartSoft.hh"
 
+#include "MonitoringTaskTimerCore.hh"
 	
 class MonitoringTaskCore : public CHS::ManagedTask
 {
+private:
+	MonitoringTaskTimerCore timer;
 public:
 	MonitoringTaskCore(CHS::SmartComponent *comp)
 	:	CHS::ManagedTask(comp)
+, timer()
 	{  }
 	virtual ~MonitoringTaskCore()
 	{  }
 
+	// svc is overloaded to implement periodic behavior
+	int svc();
 };
 #endif

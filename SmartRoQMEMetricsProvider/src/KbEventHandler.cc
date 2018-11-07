@@ -16,7 +16,6 @@
 //--------------------------------------------------------------------------
 #include "KbEventHandler.hh"
 #include "SmartRoQMEMetricsProvider.hh"
-
 #include <iostream>
 
 void KbEventHandler::handleEvent(const CHS::EventId id, const CommBasicObjects::CommKBEventResult &r) throw() 
@@ -39,6 +38,21 @@ void KbEventHandler::handleEvent(const CHS::EventId id, const CommBasicObjects::
 	 * Blocking this handler would result in blocked component communication!
 	 *
 	 */
+
+	try
+	{
+		RoqmeDDSTopics::RoqmeEventContext keyboardContext;
+		keyboardContext.name("keyboard");
+		//Question: What is the difference between "result" and "formatedResult"?
+		keyboardContext.value().push_back(r.getFormatedResult());
+		eventWr.write(keyboardContext);
+		std::cout << "KeyboardContext published!" << std::endl;
+
+	}
+	catch(Roqme::RoqmeDDSException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 	CHS::SmartGuard g(this->lock);
 	this->curentRes = r;

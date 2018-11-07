@@ -18,8 +18,8 @@
 #define _BASEBUMPEREVENTHANDLER_USER_HH
 	
 #include "smartSoft.hh"
-	
 #include "BaseBumperEventHandlerCore.hh"
+#include <RoqmeWriterImpl.h>
 
 class BaseBumperEventHandler : public BaseBumperEventHandlerCore
 {
@@ -31,6 +31,9 @@ private:
 
 public:
 	CommBasicObjects::CommBumperEventResult getCurrentEventResult();
+
+private:
+	Roqme::RoqmeEnumWriter enumWr;
 };
 	
 #endif

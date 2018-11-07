@@ -97,7 +97,7 @@
     <eventResult xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommBumperEventResult"/>
   </profile:SmartEventClient>
   <profile:SmartEventHandler xmi:id="_xmkYINzzEeiOPJBrCHaltw" base_Class="_xme4kNzzEeiOPJBrCHaltw"/>
-  <profile:SmartTask xmi:id="_SO58QNz0EeiOPJBrCHaltw" base_Class="_SOz1oNz0EeiOPJBrCHaltw"/>
+  <profile:SmartTask xmi:id="_SO58QNz0EeiOPJBrCHaltw" isPeriodic="true" period="1" base_Class="_SOz1oNz0EeiOPJBrCHaltw"/>
   <profile:SmartEventClient xmi:id="_bN1mINz0EeiOPJBrCHaltw" base_Port="_bNwGkNz0EeiOPJBrCHaltw" serverName="SmartSimpleKB" serviceName="kbEventServer" smartEventHandler="_kfgl0Nz0EeiOPJBrCHaltw">
     <eventParameter xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommKBEventParam"/>
     <eventResult xmi:type="commObj:CommunicationObject" href="pathmap://PLATFORM_RESOURCE/CommBasicObjects/model/commObject/CommBasicObjects.comm#//@elements.0/CommKBEventResult"/>

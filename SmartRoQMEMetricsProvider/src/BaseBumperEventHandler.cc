@@ -30,6 +30,37 @@ void BaseBumperEventHandler::handleEvent(const CHS::EventId id, const CommBasicO
 	 * Blocking this handler would result in blocked component communication!
 	 *
 	 */
+	/*try
+	{
+		RoqmeDDSTopics::RoqmeEnumContext enumContext;
+		enumContext.name("BumpingEvent");
+
+		CommBasicObjects::BumperEventType bumperState =  r.getState();
+		if(bumperState == CommBasicObjects::BumperEventType::BUMPER_NOT_PRESSED)
+		{
+			enumContext.value().push_back("BUMPER_NOT_PRESSED");
+		}
+		else if(bumperState == CommBasicObjects::BumperEventType::BUMPER_PRESSED)
+		{
+			enumContext.value().push_back("BUMPER_PRESSED");
+		}
+		else if(bumperState == CommBasicObjects::BumperEventType::BUMPER_UNKNOWN)
+		{
+			enumContext.value().push_back("BUMPER_UNKNOWN");
+		}
+		else
+		{
+			enumContext.value().push_back("ENUM_VALUE_UNDEFINED");
+		}
+
+		enumWr.write(enumContext);
+		std::cout << "bumperState context published!" << std::endl;
+	}
+	catch(Roqme::RoqmeDDSException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}*/
+
 
 	CHS::SmartGuard g(this->lock);
 	this->curentRes = r;

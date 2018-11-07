@@ -18,12 +18,19 @@
 #define _MONITORINGTASK_HH
 
 #include "MonitoringTaskCore.hh"
-	
+#include <RoqmeWriterImpl.h>
+#include <random>
+
+
+using namespace Roqme;
+
 class MonitoringTask  : public MonitoringTaskCore
 {
 
 private:
-
+	RoqmeDoubleWriter doubleWriter;
+	std::default_random_engine generator;
+	std::uniform_int_distribution<int> distribution;
 
 public:
 	MonitoringTask(CHS::SmartComponent *comp);
@@ -33,5 +40,9 @@ public:
 	virtual int on_execute();
 	virtual int on_exit();
 };
+
+
+
+
 
 #endif
