@@ -39,6 +39,12 @@ void KbEventHandler::handleEvent(const CHS::EventId id, const CommBasicObjects::
 			enumWr.write(kbContext);
 			std::cout<<"Robot State published: "<<r.getFormatedResult()<<std::endl;
 		}
+		else if (id == COMP->personKbEventID){
+			kbContext.name("PersonState");
+			kbContext.value().push_back(r.getFormatedResult());
+			enumWr.write(kbContext);
+			std::cout<<"Person State published: "<<r.getFormatedResult()<<std::endl;
+		}
 		else
 		{
 			std::cout<<"unkown event, this should not have happend!"<<std::endl;
