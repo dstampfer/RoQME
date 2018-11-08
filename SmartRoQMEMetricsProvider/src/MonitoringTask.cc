@@ -134,7 +134,6 @@ int MonitoringTask::on_execute()
 	// also do not use blocking calls which do not result from smartsoft kernel
 	
 
-	std::cout << "on_execute: \n";
 
 	/*
 	 * NOTE:
