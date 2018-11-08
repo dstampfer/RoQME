@@ -52,35 +52,28 @@ int MonitoringTask::on_entry()
 	 * Subscribe for KB events, this is a bit more complicated as we will need to subscribe to multiple events!
 	 * THIS IS AN EXAMPLE ONLY we need to change this parts to the needs in RoQME!!!
 	 */
-/*	CommBasicObjects::CommKBEventParam jobKbParam;
-	jobKbParam.setQuery("(kb-query-all :key '(is-a) :value '((is-a job)))");
+	CommBasicObjects::CommKBEventParam jobKbParam;
+	jobKbParam.setQuery("(kb-query :key '(is-a id) :value '((is-a job) (id 1)))");
 	jobKbParam.setFormatingClause(""
-					"(lambda (jobs)"
-					  "(let ((str (make-string-output-stream)))"
-					  "(flet ((helper (obj)"
-					   "(cond "
-	                      "((equal (get-value obj 'type) 'GotoPosition)"
-					         "(format nil \"id:~s type:~a error-state:~a state:~s robotid:~s goal-location:~s\""
-	   				  	     "(get-value obj 'id)(get-value obj 'type)"
-					  	     "(get-value obj 'error-state) (get-value obj 'state) (get-value obj 'robotid) (get-value obj 'goal-pose)))"
-					      "((equal (get-value obj 'type) 'DeliverFromTo)"
-	                         "(format nil \"id:~s type:~a error-state:~a state:~s robotid:~s start-location:~s end-location:~s\""
-					         "(get-value obj 'id)(get-value obj 'type)"
-						     "(get-value obj 'error-state) (get-value obj 'state) (get-value obj 'robotid) (get-value obj 'start-location) (get-value obj 'end-location)))"
-					      "(T"
-					         "(format nil \"id:~s type:~a error-state:~a state:~s robotid:~s\""
-					         "(get-value obj 'id)(get-value obj 'type)"
-					         "(get-value obj 'error-state) (get-value obj 'state) (get-value obj 'robotid))))))"
-					    "(format str \"Jobs \")"
-					    "(loop for obj in (butlast jobs 1)"
-					      "do"
-					      "(format str \"~a , \" (helper obj)))"
-					   "(let ((obj (first (last jobs))))"
-					      "(if (not (null obj))"
-					        "(format str \"~a\" (helper obj))))"
-					   "(get-output-stream-string str))))");
+			"(lambda (job)"
+			  "(let ((str (make-string-output-stream)))"
+			    "(flet ((helper (obj)"
+		           "(format t \"(get-value obj 'state): ~a\" (get-value obj 'state))"
+		           "(cond"
+		             "((equal (get-value obj 'state) 'NOTSTARTED)"
+		               "(format nil \"JOB_NOTSTARTED\"))"
+		             "((equal (get-value obj 'state) 'STARTED)"
+		               "(format nil \"JOB_STARTED\"))"
+		             "((equal (get-value obj 'state) 'FINISHED)"
+		               "(format nil \"JOB_FINISHED\"))"
+		             "((equal (get-value obj 'state) 'ABORTED)"
+		               "(format nil \"JOB_ABORTED\")))))"
+		            "(if (not (null job))"
+		              "(format str \"~a\" (helper job))"
+		              "(format str \"\")))"
+			       "(get-output-stream-string str)))");
 	COMP->kbEventClient->activate(CHS::EventMode::continuous,jobKbParam,COMP->jobKbEventID);
-*/
+
 
 	/*
 	 * NOTE:
