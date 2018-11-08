@@ -84,7 +84,7 @@ irDocking_transVelX 0.1              ##Range 0.1 to 0.3(Set speed(m/Sec) for X d
 irDocking_transVelY 0.1              ##Range 0.1 to 0.3(Set speed(m/Sec) for Y direction movement during IR_Docking)
 
 laserDocking_rotVel 20               ##Range 20.0 to 30.0(Set speed(Deg/Sec) for rotation during Laser_Docking)
-laserDocking_stopDistance 0.15       ##Range 0.15 to 0.40(Set distance(m) to end the Laser_Docking routine)
+laserDocking_stopDistance 0.20       ##Range 0.15 to 0.40(Set distance(m) to end the Laser_Docking routine)
 laserDocking_transVelX 0.2           ##Range 0.1 to 0.3(Set speed(m/Sec) for X direction movement during Laser_Docking)
 laserDocking_transVelY 0.2           ##Range 0.1 to 0.3(Set speed(m/Sec) for X direction movement during Laser_Docking)
 laser_intensities_threshold 60       ##Don't change

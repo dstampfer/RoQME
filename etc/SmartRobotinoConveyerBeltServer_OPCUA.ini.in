@@ -82,7 +82,7 @@ LoadProcess_TimeOutSec 60		      ##Range 20 to 60 (Time-out setting for loading 
 UnloadProcess_TimeOutSec 60		      ##Range 20 to 60 (Time-out setting for unloading process to finish completely)
 
 [OPCUAstatic]
-object_name MPS
+object_name ProductionStation
 ##########################
 # extended parameters
 [OPCUA]
