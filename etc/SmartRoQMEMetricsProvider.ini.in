@@ -58,7 +58,7 @@ wiringName KbEventClient
 # internal parameters
 [Connections]
 useBase true
-useKb false
+useKb true
 
 
 ##########################

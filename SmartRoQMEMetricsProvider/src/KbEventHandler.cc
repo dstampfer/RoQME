@@ -41,11 +41,11 @@ void KbEventHandler::handleEvent(const CHS::EventId id, const CommBasicObjects::
 
 	try
 	{
-		RoqmeDDSTopics::RoqmeEventContext keyboardContext;
-		keyboardContext.name("keyboard");
-		keyboardContext.value().push_back(r.getFormatedResult());
-		eventWr.write(keyboardContext);
-		std::cout << "KeyboardContext published!" << std::endl;
+		RoqmeDDSTopics::RoqmeEventContext kbContext;
+		kbContext.name("RobotStateEvent");
+		kbContext.value().push_back(r.getFormatedResult());
+		eventWr.write(kbContext);
+		std::cout << "kbContext published!" << std::endl;
 
 	}
 	catch(Roqme::RoqmeDDSException& e)
