@@ -22,31 +22,27 @@ void KbEventHandler::handleEvent(const CHS::EventId id, const CommBasicObjects::
 {
 	std::cout << "KbEventHandler event handler: event received: " << std::endl;
 
-
-	if(id == COMP->jobKbEventID){
-		std::cout<<"Job Event: "<<r.getFormatedResult()<<std::endl;
-	} else if (id == COMP->robotKbEventID){
-		std::cout<<"Robot State Event: "<<r.getFormatedResult()<<std::endl;
-	} else {
-		std::cout<<"unkown event, this should not have happend!"<<std::endl;
-	}
-
-	/*
-	 * NOTE:
-	 * This event handler should only be used handle the event data.
-	 * It should not be used to process the data or to call ANY other blocking function.
-	 * Blocking this handler would result in blocked component communication!
-	 *
-	 */
-
 	try
 	{
-		RoqmeDDSTopics::RoqmeEventContext kbContext;
-		kbContext.name("RobotStateEvent");
-		kbContext.value().push_back(r.getFormatedResult());
-		eventWr.write(kbContext);
-		std::cout << "kbContext published!" << std::endl;
-
+		RoqmeDDSTopics::RoqmeEnumContext kbContext;
+		if(id == COMP->jobKbEventID)
+		{
+			kbContext.name("JobState");
+			kbContext.value().push_back(r.getFormatedResult());
+			enumWr.write(kbContext);
+			std::cout<<"Job State published: "<<r.getFormatedResult()<<std::endl;
+		}
+		else if (id == COMP->robotKbEventID)
+		{
+			kbContext.name("RobotState");
+			kbContext.value().push_back(r.getFormatedResult());
+			enumWr.write(kbContext);
+			std::cout<<"Robot State published: "<<r.getFormatedResult()<<std::endl;
+		}
+		else
+		{
+			std::cout<<"unkown event, this should not have happend!"<<std::endl;
+		}
 	}
 	catch(Roqme::RoqmeDDSException& e)
 	{
