@@ -157,7 +157,7 @@ int MonitoringTask::on_execute()
 		velocityContext.value().push_back(vx);
 
 		doubleWriter.write(velocityContext);
-		std::cout << "Velocity context published:" << vx << std::endl;
+		//std::cout << "Velocity context published:" << vx << std::endl;
 	}
 	catch(Roqme::RoqmeDDSException& e)
 	{
