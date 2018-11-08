@@ -33,7 +33,7 @@ public:
 	CommBasicObjects::CommBumperEventResult getCurrentEventResult();
 
 private:
-	Roqme::RoqmeEnumWriter enumWr;
+	Roqme::RoqmeEventWriter eventWr;
 };
 	
 #endif
