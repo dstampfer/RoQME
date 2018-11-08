@@ -43,7 +43,6 @@ void KbEventHandler::handleEvent(const CHS::EventId id, const CommBasicObjects::
 	{
 		RoqmeDDSTopics::RoqmeEventContext keyboardContext;
 		keyboardContext.name("keyboard");
-		//Question: What is the difference between "result" and "formatedResult"?
 		keyboardContext.value().push_back(r.getFormatedResult());
 		eventWr.write(keyboardContext);
 		std::cout << "KeyboardContext published!" << std::endl;

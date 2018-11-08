@@ -6,8 +6,7 @@ EstimateListener::EstimateListener(){}
 
 void EstimateListener::dataAvailable(dds::sub::DataReader<RoqmeDDSTopics::RoqmeEstimate>& dr)
 {
-
-	std::cout << "Dentro de all" << std::endl;
+	std::cout << "Estimate listener: dataAvailable. Taking data..." << std::endl;
 	dds::sub::LoanedSamples<RoqmeDDSTopics::RoqmeEstimate> samples = dr.take();
 
 	if(samples.length()>0)
@@ -30,7 +29,7 @@ void EstimateListener::dataAvailable(dds::sub::DataReader<RoqmeDDSTopics::RoqmeE
 void EstimateListener::dataAvailable(const RoqmeDDSTopics::RoqmeEstimate& data, const dds::sub::SampleInfo& sampleInfo)
 {
 	std::cout << "---------------------------" << std::endl;
-	std::cout << "Estimate disponible:" << std::endl;
+	std::cout << "Estimate update available:" << std::endl;
 	std::cout << "\t name: " << data.name() << std::endl;
 	std::cout << "\t " << data.value() << std::endl;
 

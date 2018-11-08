@@ -25,7 +25,6 @@ MonitoringTask::MonitoringTask(CHS::SmartComponent *comp)
 :	MonitoringTaskCore(comp)
 {
 	std::cout << "constructor MonitoringTask\n";
-	distribution = std::uniform_int_distribution<int>(0,5);
 }
 MonitoringTask::~MonitoringTask() 
 {
@@ -53,7 +52,7 @@ int MonitoringTask::on_entry()
 	 * Subscribe for KB events, this is a bit more complicated as we will need to subscribe to multiple events!
 	 * THIS IS AN EXAMPLE ONLY we need to change this parts to the needs in RoQME!!!
 	 */
-	CommBasicObjects::CommKBEventParam jobKbParam;
+/*	CommBasicObjects::CommKBEventParam jobKbParam;
 	jobKbParam.setQuery("(kb-query-all :key '(is-a) :value '((is-a job)))");
 	jobKbParam.setFormatingClause(""
 					"(lambda (jobs)"
@@ -81,14 +80,14 @@ int MonitoringTask::on_entry()
 					        "(format str \"~a\" (helper obj))))"
 					   "(get-output-stream-string str))))");
 	COMP->kbEventClient->activate(CHS::EventMode::continuous,jobKbParam,COMP->jobKbEventID);
-
+*/
 
 	/*
 	 * NOTE:
 	 * Subscribe for KB events, this is a bit more complicated as we will need to subscribe to multiple events!
 	 * THIS IS AN EXAMPLE ONLY we need to change this parts to the needs in RoQME!!!
 	 */
-
+/*
 	CommBasicObjects::CommKBEventParam robotKbParam;
 	robotKbParam.setQuery("(kb-query-all :key '(is-a) :value '((is-a robot)))");
 	robotKbParam.setFormatingClause(""
@@ -107,7 +106,7 @@ int MonitoringTask::on_entry()
 			        "(format str \"~a\" (helper obj))))"
 			   "(get-output-stream-string str))))");
 	COMP->kbEventClient->activate(CHS::EventMode::continuous,robotKbParam,COMP->robotKbEventID);
-
+*/
 	return 0;
 }
 
@@ -132,20 +131,17 @@ int MonitoringTask::on_execute()
 	CommBasicObjects::CommBaseVelocity velocity = baseState.getBaseVelocity();
 
 	double vx = velocity.get_vX(1); // m/s
-	double vy = velocity.get_vY(1); // m/s
-	double vw = velocity.getWZ(); // rad/s
+	//double vy = velocity.get_vY(1); // m/s
+	//double vw = velocity.getWZ(); // rad/s
 
 	try
 	{
 		RoqmeDDSTopics::RoqmeDoubleContext velocityContext;//, vyContext, vwContext;
 		velocityContext.name("VelocityEvent");
-		//double velocity = 0.5;
-
-		double velocity =  distribution(generator);
-		velocityContext.value().push_back(velocity);
+		velocityContext.value().push_back(vx);
 
 		doubleWriter.write(velocityContext);
-		std::cout << "velocity context published:" << velocity << std::endl;
+		std::cout << "Velocity context published:" << velocity << std::endl;
 	}
 	catch(Roqme::RoqmeDDSException& e)
 	{

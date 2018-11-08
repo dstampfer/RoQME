@@ -30,7 +30,7 @@ void BaseBumperEventHandler::handleEvent(const CHS::EventId id, const CommBasicO
 	 * Blocking this handler would result in blocked component communication!
 	 *
 	 */
-	/*try
+	try
 	{
 		RoqmeDDSTopics::RoqmeEnumContext enumContext;
 		enumContext.name("BumpingEvent");
@@ -59,7 +59,7 @@ void BaseBumperEventHandler::handleEvent(const CHS::EventId id, const CommBasicO
 	catch(Roqme::RoqmeDDSException& e)
 	{
 		std::cerr << e.what() << std::endl;
-	}*/
+	}
 
 
 	CHS::SmartGuard g(this->lock);

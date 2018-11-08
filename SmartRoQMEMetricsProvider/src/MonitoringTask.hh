@@ -29,8 +29,6 @@ class MonitoringTask  : public MonitoringTaskCore
 
 private:
 	RoqmeDoubleWriter doubleWriter;
-	std::default_random_engine generator;
-	std::uniform_int_distribution<int> distribution;
 
 public:
 	MonitoringTask(CHS::SmartComponent *comp);
