@@ -87,17 +87,14 @@ int MonitoringTask::on_entry()
 	 * Subscribe for KB events, this is a bit more complicated as we will need to subscribe to multiple events!
 	 * THIS IS AN EXAMPLE ONLY we need to change this parts to the needs in RoQME!!!
 	 */
-/*
+
 	CommBasicObjects::CommKBEventParam robotKbParam;
 	robotKbParam.setQuery("(kb-query-all :key '(is-a) :value '((is-a robot)))");
 	robotKbParam.setFormatingClause(""
 			"(lambda (robots)"
 			  "(let ((str (make-string-output-stream)))"
-			  "(flet ((helper (obj) (format nil \"id:~s state:~s sub-state:~a box-loaded:~s\""
-			  	  "(get-value obj 'name)"
-			  	  "(get-value obj 'state)"
-			  	  "(get-value obj 'sub-state) (get-value obj 'box-loaded))))"
-			    "(format str \"SymbolicFleetState \")"
+			  "(flet ((helper (obj) (format nil \"~s\""
+			  	  "(get-value obj 'state))))"
 			    "(loop for obj in (butlast robots 1)"
 			      "do"
 			      "(format str \"~a , \" (helper obj)))"
@@ -106,7 +103,7 @@ int MonitoringTask::on_entry()
 			        "(format str \"~a\" (helper obj))))"
 			   "(get-output-stream-string str))))");
 	COMP->kbEventClient->activate(CHS::EventMode::continuous,robotKbParam,COMP->robotKbEventID);
-*/
+
 	return 0;
 }
 
