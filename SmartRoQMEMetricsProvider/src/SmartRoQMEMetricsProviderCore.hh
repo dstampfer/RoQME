@@ -32,6 +32,7 @@ public:
 	CHS::EventId bumperEventID;
 	CHS::EventId jobKbEventID;
 	CHS::EventId robotKbEventID;
+	CHS::EventId personKbEventID;
 
 	RoqmeEstimateReader estimateReader;
 };

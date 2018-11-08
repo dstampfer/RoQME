@@ -114,6 +114,27 @@ int MonitoringTask::on_entry()
 			   "(get-output-stream-string str))))");
 	COMP->kbEventClient->activate(CHS::EventMode::continuous,robotKbParam,COMP->robotKbEventID);
 
+
+	CommBasicObjects::CommKBEventParam personKbParam;
+	personKbParam.setQuery("(kb-query :key '(is-a) :value '((is-a person-in-room)))");
+	personKbParam.setFormatingClause(""
+			"(lambda (person)"
+			  "(let ((str (make-string-output-stream)))"
+			  "(flet ((helper (obj)"
+			   "(cond"
+                "((equal (get-value obj 'state) 'T)"
+                   "(format nil \"PERSON_IN\"))"
+                "((equal (get-value obj 'state) 'NIL)"
+                   "(format nil \"PERSON_NOT_IN\")))))"
+			    "(loop for obj in (butlast persons 1)"
+			      "do"
+			      "(format str \"~a , \" (helper obj)))"
+			   "(let ((obj (first (last person))))"
+			      "(if (not (null obj))"
+			        "(format str \"~a\" (helper obj))))"
+			   "(get-output-stream-string str))))");
+	COMP->kbEventClient->activate(CHS::EventMode::continuous,personKbParam,COMP->personKbEventID);
+
 	return 0;
 }
 
